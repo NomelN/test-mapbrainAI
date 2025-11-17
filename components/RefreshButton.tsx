@@ -19,7 +19,7 @@ export default function RefreshButton() {
     <button
       onClick={handleRefresh}
       disabled={isPending}
-      className="flex items-center gap-2 px-4 py-2 bg-green-600 text-white font-medium rounded-lg hover:bg-green-700 disabled:bg-green-400 disabled:cursor-not-allowed transition-colors shadow-md"
+      className="flex items-center gap-2 px-6 py-2.5 bg-mapbrain-deepPink text-white font-semibold rounded-full hover:bg-mapbrain-pink disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 shadow-lg hover:shadow-xl hover:scale-105"
     >
       <svg
         className={`h-5 w-5 ${isPending ? "animate-spin" : ""}`}

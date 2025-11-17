@@ -16,8 +16,14 @@ function PostsSkeleton() {
       {[...Array(6)].map((_, i) => (
         <div
           key={i}
-          className="p-6 bg-gray-200 dark:bg-gray-700 rounded-lg animate-pulse h-48"
-        />
+          className="p-6 bg-white dark:bg-gray-900 rounded-2xl border border-gray-100 dark:border-gray-800 h-48"
+        >
+          <div className="animate-pulse space-y-3">
+            <div className="h-4 bg-gray-200 dark:bg-gray-800 rounded w-3/4"></div>
+            <div className="h-3 bg-gray-200 dark:bg-gray-800 rounded"></div>
+            <div className="h-3 bg-gray-200 dark:bg-gray-800 rounded w-5/6"></div>
+          </div>
+        </div>
       ))}
     </div>
   );
@@ -57,17 +63,17 @@ export default async function PostsPage({ searchParams }: PostsPageProps) {
   const searchQuery = params.q || "";
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div className="min-h-screen bg-gray-50 dark:bg-black">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Header */}
-        <div className="mb-8">
-          <div className="flex items-center justify-between mb-4">
+        <div className="mb-12">
+          <div className="flex items-center justify-between mb-6">
             <Link
               href="/"
-              className="text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-2"
+              className="group flex items-center gap-2 px-4 py-2 text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white font-medium rounded-full hover:bg-white dark:hover:bg-gray-900 transition-all"
             >
               <svg
-                className="h-5 w-5"
+                className="h-5 w-5 group-hover:-translate-x-1 transition-transform"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -83,16 +89,16 @@ export default async function PostsPage({ searchParams }: PostsPageProps) {
             </Link>
             <RefreshButton />
           </div>
-          <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-2">
-            Articles
+          <h1 className="text-5xl md:text-6xl font-bold mb-3">
+            <span className="gradient-text">Articles</span>
           </h1>
-          <p className="text-gray-600 dark:text-gray-300">
+          <p className="text-xl text-gray-600 dark:text-gray-400">
             Explorez notre collection d&apos;articles
           </p>
         </div>
 
         {/* Barre de recherche */}
-        <div className="mb-8">
+        <div className="mb-10">
           <SearchBar />
         </div>
 

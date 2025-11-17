@@ -8,33 +8,28 @@ interface PostCardProps {
 export default function PostCard({ post }: PostCardProps) {
   return (
     <Link href={`/posts/${post.id}`}>
-      <div className="block p-6 bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-xl transition-shadow border border-gray-200 dark:border-gray-700 h-full">
-        <div className="flex items-start justify-between mb-2">
-          <h2 className="text-xl font-semibold text-gray-900 dark:text-white line-clamp-2">
+      <div className="group block p-6 bg-white dark:bg-gray-900 rounded-2xl shadow-sm hover:shadow-2xl transition-all duration-300 border border-gray-100 dark:border-gray-800 h-full hover:scale-[1.02] hover:border-mapbrain-pink/30">
+        <div className="flex items-start justify-between mb-3">
+          <h2 className="text-xl font-semibold text-gray-900 dark:text-white line-clamp-2 group-hover:text-mapbrain-deepPink transition-colors">
             {post.title}
           </h2>
-          <span className="ml-2 px-2 py-1 text-xs bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full flex-shrink-0">
+          <span className="ml-2 px-3 py-1 text-xs font-medium bg-gradient-to-r from-mapbrain-cream/20 to-mapbrain-pink/20 text-mapbrain-deepPink rounded-full flex-shrink-0 border border-mapbrain-pink/20">
             #{post.id}
           </span>
         </div>
-        <p className="text-gray-600 dark:text-gray-300 line-clamp-3">
+        <p className="text-gray-600 dark:text-gray-400 line-clamp-3 mb-4">
           {post.body}
         </p>
-        <div className="mt-4 flex items-center text-sm text-gray-500 dark:text-gray-400">
-          <svg
-            className="h-4 w-4 mr-1"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
-            />
+        <div className="flex items-center justify-between">
+          <div className="flex items-center text-sm text-gray-500 dark:text-gray-500">
+            <div className="w-6 h-6 rounded-full bg-gradient-to-br from-mapbrain-pink to-mapbrain-purple flex items-center justify-center text-white text-xs font-semibold mr-2">
+              {post.userId}
+            </div>
+            <span>User {post.userId}</span>
+          </div>
+          <svg className="w-5 h-5 text-gray-400 group-hover:text-mapbrain-deepPink group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
           </svg>
-          User {post.userId}
         </div>
       </div>
     </Link>
