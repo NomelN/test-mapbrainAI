@@ -1,4 +1,4 @@
-import { Post } from "./types";
+import { Post, Comment } from "./types";
 
 const API_URL = "https://jsonplaceholder.typicode.com";
 
@@ -31,6 +31,23 @@ export async function getPost(id: string): Promise<Post> {
 
   if (!res.ok) {
     throw new Error(`Échec de récupération du post ${id}`);
+  }
+
+  return res.json();
+}
+
+/**
+ * Récupère les commentaires pour un post spécifique
+ * - Filtre par postId pour obtenir uniquement les commentaires associés
+ * - revalidate: 60 pour actualiser périodiquement
+ */
+export async function getComments(postId: number): Promise<Comment[]> {
+  const res = await fetch(`${API_URL}/comments?postId=${postId}`, {
+    next: { revalidate: 60 },
+  });
+
+  if (!res.ok) {
+    throw new Error(`Échec de récupération des commentaires pour le post ${postId}`);
   }
 
   return res.json();
